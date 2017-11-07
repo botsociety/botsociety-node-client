@@ -1,4 +1,6 @@
 # Botsociety api
+[![NPM](https://nodei.co/npm/botsociety.png)](https://nodei.co/npm/botsociety/)
+
 Npm module to retrieve automagically the content of your chatbot designs from botsociety.io
 
 You can find more details about our api at https://botsociety.docs.apiary.io
