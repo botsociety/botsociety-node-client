@@ -43,11 +43,11 @@ botsociety.getConversations().then(response => {
   console.log(response)
 });
 
-botsociety.getConversations(CONVERSATION-ID).then(response => {
+botsociety.getConversations('CONVERSATION-ID').then(response => {
   console.log(response)
 });
 
-botsociety.getMessage(MESSAGE-ID).then(response => {
+botsociety.getMessage('MESSAGE-ID').then(response => {
   console.log(response)
 });
 ```
