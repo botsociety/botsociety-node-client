@@ -29,26 +29,25 @@ let Botsociety = require('botsociety')
 
 let config = {
   userId : 'YOUR-USER-ID',
-  apiKey: 'YOUR-API-KEY',
+  apiKey : 'YOUR-API-KEY',
   debug : false
 }
 
 let botsociety = new Botsociety(config)
 
-botsociety.auth().then(response=>{
+botsociety.auth().then(response => {
   console.log(response)
 });
 
-botsociety.getConversations().then(response=>{
+botsociety.getConversations().then(response => {
   console.log(response)
 });
 
-botsociety.getConversations('CONVERSATION-ID').then(response=>{
+botsociety.getConversations(CONVERSATION-ID).then(response => {
   console.log(response)
 });
 
-botsociety.getMessage(MESSAGE-ID).then(response=>{
+botsociety.getMessage(MESSAGE-ID).then(response => {
   console.log(response)
 });
 ```
-
