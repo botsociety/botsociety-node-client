@@ -7,8 +7,8 @@
 
 'use strict';
 
-const request = require('request')
-const Q = require('q')
+let request = require('request')
+let Q = require('q')
 
 module.exports = Botsociety
 
