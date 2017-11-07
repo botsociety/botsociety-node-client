@@ -1,0 +1,29 @@
+{
+  "name": "botsociety",
+  "email": "tech@botsociety.com",
+  "homepage": "https://botsociety.io",
+  "url": "https://botsociety.io",
+  "version": "1.0.0",
+  "description": "Botsociety npm api module",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/botsociety/api.git"
+  },
+  "keywords": [
+    "botsociety",
+    "chatbot",
+    "conversational-interfaces",
+    "design-tool"
+  ],
+  "author": "Botsociety Inc.",
+  "license": "ISC",
+  "devDependencies": {
+    "q": "^1.5.1",
+    "request": "^2.83.0"
+  },
+  "dependencies": {
+    "q": "^1.5.1",
+    "request": "^2.83.0"
+  }
+}

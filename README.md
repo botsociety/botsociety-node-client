@@ -30,7 +30,7 @@ let Botsociety = require('botsociety')
 let config = {
   userId : 'YOUR-USER-ID',
   apiKey: 'YOUR-API-KEY',
-  debug : true
+  debug : false
 }
 
 let botsociety = new Botsociety(config)
