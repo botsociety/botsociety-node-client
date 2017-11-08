@@ -23,7 +23,7 @@ You can find more details about our api at https://botsociety.docs.apiary.io
 -  apiKey (required)
 -  debug (boolean, optional)
 
-You can find your userId and apiKey [`here`] (https://app.botsociety.io/#/account)
+You can find your userId and apiKey [`here`](https://app.botsociety.io/#/account)
 
 With debug set to `true`, some debugging messages will be displayed on console
 
