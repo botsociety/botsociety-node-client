@@ -35,14 +35,14 @@ You can find more details about our api at https://botsociety.docs.apiary.io
             <td>String</td>
             <th></th>
             <td>yes</td>
-            <td>This is your user ID. You can find it [`here`](https://app.botsociety.io/#/account) </td>
+            <td>This is your user ID. You can find it <a target="_blank" href="https://app.botsociety.io/#/account">here</a> </td>
         </tr>
         <tr>
             <td>apiKey</td>
             <td>String</td>
             <th></th>
             <td>yes</td>
-            <td>This is your api key. You can find it [`here`](https://app.botsociety.io/#/account) </td>
+            <td>This is your api key. You can find it <a target="_blank" href="https://app.botsociety.io/#/account">here</a> </td>
         </tr>
         <tr>
             <td>debug</td>
