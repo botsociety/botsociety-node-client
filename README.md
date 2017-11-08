@@ -19,13 +19,40 @@ You can find more details about our api at https://botsociety.docs.apiary.io
 
 
 ## Configuration
--  userId (required)
--  apiKey (required)
--  debug (boolean, optional)
-
-You can find your userId and apiKey [`here`](https://app.botsociety.io/#/account)
-
-With debug set to `true`, some debugging messages will be displayed on console
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th style="width: 100px;">name</th>
+            <th style="width: 50px;">type</th>
+            <th>default</th>
+            <th>required</th>
+            <th>description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>userId</td>
+            <td>String</td>
+            <th></th>
+            <td>yes</td>
+            <td>This is your user ID. You can find it [`here`](https://app.botsociety.io/#/account) </td>
+        </tr>
+        <tr>
+            <td>apiKey</td>
+            <td>String</td>
+            <th></th>
+            <td>yes</td>
+            <td>This is your api key. You can find it [`here`](https://app.botsociety.io/#/account) </td>
+        </tr>
+        <tr>
+            <td>debug</td>
+            <td>Boolean</td>
+            <th>false</th>
+            <td>no</td>
+            <td>Set to `true`, some debugging messages will be displayed on console</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Usage example
 
