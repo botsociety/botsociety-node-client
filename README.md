@@ -7,8 +7,8 @@ You can find more details about our api at https://botsociety.docs.apiary.io
 
 ## What you can do
 - [`testing api auth`](https://botsociety.docs.apiary.io/#reference/0/auth/auth)
-- [`retrieve all conversations`](https://botsociety.docs.apiary.io/#reference/0/list-conversations) 
-- [`retrieve single conversation`](https://botsociety.docs.apiary.io/#reference/0/get-conversation) 
+- [`retrieve all conversations`](https://botsociety.docs.apiary.io/#reference/0/list-conversations)
+- [`retrieve single conversation`](https://botsociety.docs.apiary.io/#reference/0/get-conversation)
 - [`retrieve all messages for a specific conversation`](https://botsociety.docs.apiary.io/#reference/0/get-message)
 
 ## Methods
@@ -35,14 +35,14 @@ You can find more details about our api at https://botsociety.docs.apiary.io
             <td>String</td>
             <th></th>
             <td>yes</td>
-            <td>This is your user ID. You can find it <a target="_blank" href="https://app.botsociety.io/#/account">here</a> </td>
+            <td>This is your user ID. This is your user ID. You can find it in your <a target="_blank" href="https://app.botsociety.io/#/account">Botsociety Profile page</a> </td>
         </tr>
         <tr>
             <td>apiKey</td>
             <td>String</td>
             <th></th>
             <td>yes</td>
-            <td>This is your api key. You can find it <a target="_blank" href="https://app.botsociety.io/#/account">here</a> </td>
+            <td>This is your api key. You can find it in your <a target="_blank" href="https://app.botsociety.io/#/account">Botsociety Profile page</a> </td>
         </tr>
         <tr>
             <td>debug</td>
@@ -83,3 +83,28 @@ botsociety.getMessage('MESSAGE-ID').then(response => {
   console.log(response)
 });
 ```
+
+## License
+ISC
+
+## Contributing
+
+We love pull requests from everyone.
+In general, we follow the "fork-and-pull" Git workflow.
+
+1. **Fork** the repo on GitHub
+2. **Clone** the project to your own machine
+3. **Commit** changes to your own branch
+4. **Push** your work back up to your fork
+5. Submit a **Pull request** so that we can review your changes
+
+At this point you're waiting on us. We like to at least comment on pull requests
+within three business days (and, typically, one business day). We may suggest
+some changes or improvements or alternatives.
+
+Remember to write a [good commit message][commit].
+
+[commit]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
+
+NOTE: Be sure to merge the latest version before making a pull request!
+
