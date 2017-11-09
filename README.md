@@ -35,7 +35,7 @@ You can find more details about our api at https://botsociety.docs.apiary.io
             <td>String</td>
             <th></th>
             <td>yes</td>
-            <td>This is your user ID. This is your user ID. You can find it in your <a target="_blank" href="https://app.botsociety.io/#/account">Botsociety Profile page</a> </td>
+            <td>This is your user ID. You can find it in your <a target="_blank" href="https://app.botsociety.io/#/account">Botsociety Profile page</a> </td>
         </tr>
         <tr>
             <td>apiKey</td>
