@@ -57,7 +57,9 @@ You can find more details about our API at https://botsociety.docs.apiary.io
 
 ## Get your user ID and API key
 You need to sign up at botsociety.io (it's free!)
+
 Go to the <a target="_blank" href="https://app.botsociety.io/#/account">account page</a>
+
 Generate the API key
 
 ## Usage example
