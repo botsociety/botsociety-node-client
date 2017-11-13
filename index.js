@@ -15,13 +15,14 @@ module.exports = Botsociety
 function Botsociety (config) {
     this.apiUrl = 'https://app.botsociety.io/apisociety'
     this.apiVersion = '1.0'
+    this.apiSource = 'npm'
     this.userId = config.userId
     this.apiKey = config.apiKey
     this.debug = (!config.debug || config.debug === undefined )? false : config.debug
 
     this.call = (url)=>{
         let options = {
-            url : `${this.apiUrl}/${this.apiVersion}/${url}`,
+            url : `${this.apiUrl}/${this.apiVersion}/${this.apiSource}/${url}`,
             method:  'GET',
             headers: {
                 'Content-Type' : 'application/json',
@@ -54,7 +55,7 @@ function Botsociety (config) {
 
 Botsociety.prototype.auth = function(){
     this.clog(`CALLING AUTH`)
-    return this.call(``)
+    return this.call('')
 }
 
 Botsociety.prototype.getConversations = function(conversationId = ''){
