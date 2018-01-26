@@ -10,13 +10,14 @@ You can find more details about our API at https://botsociety.docs.apiary.io
 - [`retrieve all conversations`](https://botsociety.docs.apiary.io/#reference/0/list-conversations)
 - [`retrieve single conversation`](https://botsociety.docs.apiary.io/#reference/0/get-conversation)
 - [`retrieve all messages for a specific conversation`](https://botsociety.docs.apiary.io/#reference/0/get-message)
+- [`retrieve all variables for a specific conversation`](https://botsociety.docs.apiary.io/#reference/0/get-variables/get-variables)
 
 ## Methods
 - auth()
 - getConversations()
 - getConversations(conversationId)
 - getMessage(messageId)
-
+- getVariables(conversationId)
 
 ## Configuration
 
@@ -295,6 +296,19 @@ botsociety.getMessage('MESSAGE-ID').then(response => {
     //     "alternativeChoices": [],
     //     "choices": []
     //   }
+});
+
+botsociety.getVariables('CONVERSATION-ID').then(response => {
+  console.log(response)
+    //  Example response for variables
+    //  {
+    //      "Name": {
+    //          "values": [
+    //              "Stefano",
+    //              "Max"
+    //          ]
+    //      }
+    //  }
 });
 ```
 

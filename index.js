@@ -68,3 +68,7 @@ Botsociety.prototype.getMessage = function(messageId){
     return this.call(`messages/${messageId}`)
 }
 
+Botsociety.prototype.getVariables = function(conversationId){
+    this.clog(`CALLING API VARIABLES/${conversationId}`)
+    return this.call(`variables/${conversationId}`)
+}
