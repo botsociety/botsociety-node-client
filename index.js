@@ -14,7 +14,7 @@ module.exports = Botsociety
 
 function Botsociety (config) {
     this.apiUrl = 'https://app.botsociety.io/apisociety'
-    this.apiVersion = '1.0'
+    this.apiVersion = config.userId || '1.1'
     this.apiSource = 'npm'
     this.userId = config.userId
     this.apiKey = config.apiKey
@@ -66,6 +66,11 @@ Botsociety.prototype.getConversations = function(conversationId = ''){
 Botsociety.prototype.getMessage = function(messageId){
     this.clog(`CALLING API MESSAGE/${messageId}`)
     return this.call(`messages/${messageId}`)
+}
+
+Botsociety.prototype.getMessageByConversation = function(conversationId, messageId){
+    this.clog(`CALLING API MESSAGE/${messageId}`)
+    return this.call(`conversations/${conversationId}/messages/${messageId}`)
 }
 
 Botsociety.prototype.getVariables = function(conversationId){

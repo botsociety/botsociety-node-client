@@ -71,7 +71,8 @@ let Botsociety = require('botsociety')
 let config = {
   userId : 'YOUR-USER-ID',
   apiKey : 'YOUR-API-KEY',
-  debug : false
+  debug : false,
+  apiVersion : '1.1' // or 1.0
 }
 
 let botsociety = new Botsociety(config)
@@ -259,6 +260,46 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
 });
 
 botsociety.getMessage('MESSAGE-ID').then(response => {
+  console.log(response)
+    //  Example response for message id
+    //   {
+    //     "_id": "5a3a974b0462ee0d00c626a5",
+    //     "updatedAt": "2017-12-20T17:01:13.896Z",
+    //     "createdAt": "2017-12-20T17:00:59.160Z",
+    //     "type": "tbuttons",
+    //     "side": true,
+    //     "text": "",
+    //     "_sender": "5a3a941a0462ee0d00c62693",
+    //     "_conversation": "5a3a941a0462ee0d00c62694",
+    //     "__v": 2,
+    //     "global_views_count": 0,
+    //     "unique_views_count": 0,
+    //     "next_alternative": null,
+    //     "prev_alternative": null,
+    //     "attachments": [{
+    //         "image": "https://s3.amazonaws.com/botsociety.prod.us/18e96cca4953df72693feb59_screen%20shot%2020171215%20at%20114303%20pmpng.png",
+    //         "labels": ["Civ 6", "$300 now"],
+    //         "choices": [{
+    //             "next_message": null,
+    //             "is_next_message_linked": false,
+    //             "text": "Buy"
+    //         }, {
+    //             "next_message": null,
+    //             "is_next_message_linked": false,
+    //             "text": "Rent"
+    //         }]
+    //     }],
+    //     "next_message": null,
+    //     "is_next_message_linked": false,
+    //     "prev_linked_messages": [],
+    //     "prev_message": "5a3a97570462ee0d00c626a8",
+    //     "show_time": 1500,
+    //     "alternativeChoices": [],
+    //     "choices": []
+    //   }
+});
+
+botsociety.getMessageByConversation('CONVERSATION-ID','MESSAGE-ID').then(response => {
   console.log(response)
     //  Example response for message id
     //   {
