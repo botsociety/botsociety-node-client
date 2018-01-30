@@ -16,8 +16,15 @@ You can find more details about our API at https://botsociety.docs.apiary.io
 - auth()
 - getConversations()
 - getConversations(conversationId)
-- getMessage(messageId)
+- getMessageByConversation(conversationId, messageId)
+- getMessage(messageId) - DEPRECATED
 - getVariables(conversationId)
+
+## Changelog
+
+- 30/01/2018 
+    Release the new API version 1.1.
+    getMessage() is deprecated, please use getMessageByConversation() instead.
 
 ## Configuration
 
