@@ -13,7 +13,7 @@ let Q = require('q')
 module.exports = Botsociety
 
 function Botsociety(config) {
-    this.apiUrl = 'http://localhost:3000/apisociety'
+    this.apiUrl = 'https://app.botsociety.io/apisociety'
     this.apiVersion = '1.1'
     this.apiSource = 'npm'
     this.userId = config.userId
