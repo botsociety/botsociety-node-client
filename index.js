@@ -13,16 +13,18 @@ let Q = require('q')
 module.exports = Botsociety
 
 function Botsociety(config) {
-    this.apiUrl = 'https://app.botsociety.io/apisociety'
-    this.apiVersion = config.apiVersion || '1.1'
+    this.apiUrl = 'http://localhost:3000/apisociety'
+    this.apiVersion = '1.1'
     this.apiSource = 'npm'
     this.userId = config.userId
     this.apiKey = config.apiKey
     this.debug = (!config.debug || config.debug === undefined) ? false : config.debug
 
-    this.call = (url) => {
+    this.call = (url, apiVersion) => {
+        let localApi = apiVersion || this.apiVersion;
+        console.log(`${this.apiUrl}/${localApi}/${this.apiSource}/${url}`);
         let options = {
-            url: `${this.apiUrl}/${this.apiVersion}/${this.apiSource}/${url}`,
+            url: `${this.apiUrl}/${localApi}/${this.apiSource}/${url}`,
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +42,7 @@ function Botsociety(config) {
             }
             this.clog(`RESPONSE BODY`)
             this.clog(`${body}`)
-            return deferred.resolve(body)
+            return deferred.resolve(JSON.parse(body))
         })
         return deferred.promise
     }
@@ -64,7 +66,8 @@ Botsociety.prototype.getConversations = function (conversationId = '') {
 
 Botsociety.prototype.getMessage = function (messageId) {
     this.clog(`CALLING API MESSAGE/${messageId}`)
-    return this.call(`messages/${messageId}`)
+    this.clog('getMessage() will be deprecated staring from 2.0, please use getMessageByConversation() instead')
+    return this.call(`messages/${messageId}`, '1.0')
 }
 
 Botsociety.prototype.getMessageByConversation = function (conversationId, messageId) {

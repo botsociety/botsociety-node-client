@@ -78,8 +78,7 @@ let Botsociety = require('botsociety')
 let config = {
   userId : 'YOUR-USER-ID',
   apiKey : 'YOUR-API-KEY',
-  debug : false,
-  apiVersion : '1.1' // or 1.0
+  debug : false
 }
 
 let botsociety = new Botsociety(config)
