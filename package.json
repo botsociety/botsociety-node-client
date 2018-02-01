@@ -1,6 +1,6 @@
 {
   "name": "botsociety",
-  "email": "tech@botsociety.com",
+  "email": "info@botsociety.com",
   "homepage": "https://botsociety.io",
   "url": "https://botsociety.io",
   "version": "1.0.5",
@@ -8,7 +8,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/botsociety/api.git"
+    "url": "https://github.com/botsociety/npm-client.git"
   },
   "keywords": [
     "botsociety",
