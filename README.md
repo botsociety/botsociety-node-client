@@ -76,7 +76,9 @@ let config = {
 }
 
 let botsociety = new Botsociety(config)
-
+```
+### auth()
+```js
 botsociety.auth().then(response => {
   console.log(response)
   //Example response object:
@@ -85,7 +87,9 @@ botsociety.auth().then(response => {
   //     "info": "You are successfully calling the API. This is just a test API to check your authentication params."
   //   }
 });
-
+```
+### getConversations()
+```js
 botsociety.getConversations().then(response => {
  console.log(response)
     // Example response from a user with 2 different mockups
@@ -110,12 +114,13 @@ botsociety.getConversations().then(response => {
     //     }
     // ]
 });
-
+```
+### getConversations('CONVERSATION-ID')
+You can get the conversation ID by visiting the building mode page, the conversation ID is in the right side.
+```js
 botsociety.getConversations('CONVERSATION-ID').then(response => {
   console.log(response)
     //  Example response for a Messenger conversation.
-    //  You can see this conversation here: 
-    //  You can get the conversation ID by visiting the building mode page, the conversation ID is in the right side.
     // {
     //     "_id":"5a72e561f34eeb072c293cfd",
     //     "updatedAt":"2018-02-01T10:01:30.137Z",
@@ -204,11 +209,12 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
     //     ]
     // }
 });
-
+```
+### getMessageByConversation('CONVERSATION-ID','MESSAGE-ID')
+You can use the unique id or the progressive id.
+You can get the progressive ID by visiting the building mode page (Build button), progressive ID is referenced as "ID".
+```js
 botsociety.getMessageByConversation('CONVERSATION-ID','MESSAGE-ID').then(response => {
-  // You can use the unique id or the progressive id.
-  // You can get the progressive ID by visiting the building mode page (Build button), progressive ID is referenced as "ID".
-  //
   console.log(response)
     //  Example response for message id
     // {
@@ -239,7 +245,9 @@ botsociety.getMessageByConversation('CONVERSATION-ID','MESSAGE-ID').then(respons
     //     "choices": []
     // }
 });
-
+```
+### getConversationVariables('CONVERSATION-ID')
+```js
 botsociety.getConversationVariables('CONVERSATION-ID').then(response => {
   console.log(response)
     //  Example response for variables
@@ -252,7 +260,9 @@ botsociety.getConversationVariables('CONVERSATION-ID').then(response => {
     //      }
     //  }
 });
-
+```
+### getMessage('MESSAGE-ID')
+```js
 botsociety.getMessage('MESSAGE-ID').then(response => {
   console.log(response)
     //  Example response for message id
