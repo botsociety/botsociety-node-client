@@ -114,7 +114,8 @@ botsociety.getConversations().then(response => {
 botsociety.getConversations('CONVERSATION-ID').then(response => {
   console.log(response)
     //  Example response for a Messenger conversation.
-    //  You can see this conversation here: https://app.botsociety.io/s/5a3a941a0462ee0d00c62694?p=ae70e850f80838592dbe655eb06e3f9b5c63c627
+    //  You can see this conversation here: 
+    //  You can get the conversation ID by visiting the building mode page, the conversation ID is in the right side.
     // {
     //     "_id":"5a72e561f34eeb072c293cfd",
     //     "updatedAt":"2018-02-01T10:01:30.137Z",
