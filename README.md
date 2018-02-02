@@ -308,8 +308,9 @@ botsociety.getMessage('MESSAGE-ID').then(response => {
 });
 ```
 
-## License
-ISC
+## License (ISC)
+
+See the [LICENSE file](LICENSE) for details.
 
 ## Contributing
 
