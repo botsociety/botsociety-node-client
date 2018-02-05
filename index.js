@@ -22,7 +22,7 @@ function Botsociety(config) {
 
     this.call = (url, apiVersion) => {
         let localApi = apiVersion || this.apiVersion;
-        console.log(`${this.apiUrl}/${localApi}/${this.apiSource}/${url}`);
+        this.clog(`${this.apiUrl}/${localApi}/${this.apiSource}/${url}`);
         let options = {
             url: `${this.apiUrl}/${localApi}/${this.apiSource}/${url}`,
             method: 'GET',
