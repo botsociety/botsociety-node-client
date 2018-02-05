@@ -90,7 +90,7 @@ Botsociety.prototype.getMessage = function (messageId) {
 Botsociety.prototype.getMessageByConversation = function (conversationId, messageId) {
     let deferred = Q.defer();
     if(typeof conversationId === 'undefined' || typeof messageId === 'undefined'){
-        deferred.reject(JSON.parse({info:'Please, provide two params: a conversation ID and a message ID.'}));
+        deferred.reject({info:'Please, provide two params: a conversation ID and a message ID.'});
         return deferred.promise;
     }
     if(typeof conversationId !== 'string'){
