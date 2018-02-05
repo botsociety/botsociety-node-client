@@ -40,12 +40,12 @@ function Botsociety(config) {
             if (error) {
                 this.clog(`ERROR`)
                 this.clog(`${error}`)
-                return deferred.reject(new Error(error))
+                return deferred.reject(error)
             }
             if(response && response.statusCode !== 200){
                 this.clog(`ERROR`)
                 this.clog(`${body}`)
-                return deferred.reject(new Error(body))
+                return deferred.reject(JSON.parse(body))
             }
             this.clog(`RESPONSE BODY`)
             this.clog(`${body}`)
@@ -69,7 +69,7 @@ Botsociety.prototype.auth = function () {
 Botsociety.prototype.getConversations = function (conversationId = '') {
     let deferred = Q.defer();
     if(typeof conversationId !== 'string'){
-        deferred.reject(new Error('Conversation ID must be a string.'))
+        deferred.reject({info: 'Conversation ID must be a string.'})
         return deferred.promise;
     }
     this.clog(`CALLING API CONVERSATIONS/${conversationId}`)
@@ -79,7 +79,7 @@ Botsociety.prototype.getConversations = function (conversationId = '') {
 Botsociety.prototype.getMessage = function (messageId) {
     let deferred = Q.defer();
     if(typeof messageId === 'undefined'){
-        deferred.reject(new Error('Please, provide a message ID.'));
+        deferred.reject({info:'Please, provide a message ID.'});
         return deferred.promise;
     }
     this.clog(`CALLING API MESSAGE/${messageId}`)
@@ -90,11 +90,11 @@ Botsociety.prototype.getMessage = function (messageId) {
 Botsociety.prototype.getMessageByConversation = function (conversationId, messageId) {
     let deferred = Q.defer();
     if(typeof conversationId === 'undefined' || typeof messageId === 'undefined'){
-        deferred.reject(new Error('Please, provide two params: a conversation ID and a message ID.'));
+        deferred.reject(JSON.parse({info:'Please, provide two params: a conversation ID and a message ID.'}));
         return deferred.promise;
     }
     if(typeof conversationId !== 'string'){
-        deferred.reject(new Error('Conversation ID must be a string.'));
+        deferred.reject({info:'Conversation ID must be a string.'});
         return deferred.promise;
     }
     this.clog(`CALLING API MESSAGEBYCONVERSATION/${messageId}`)
@@ -104,7 +104,7 @@ Botsociety.prototype.getMessageByConversation = function (conversationId, messag
 Botsociety.prototype.getVariables = function (conversationId) {
     let deferred = Q.defer();
     if(typeof conversationId === 'undefined'){
-        deferred.reject(new Error('Please, provide a conversation ID.'));
+        deferred.reject({info:'Please, provide a conversation ID.'});
         return deferred.promise;
     }
     this.clog(`CALLING API conversations/${conversationId}/variables`)
