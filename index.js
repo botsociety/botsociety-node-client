@@ -34,11 +34,18 @@ function Botsociety(config) {
         }
         let deferred = Q.defer();
         request(options, (error, response, body) => {
-            this.clog(`RESPONSE STATUS ${response.statusCode}`)
+            if(response){
+                this.clog(`RESPONSE STATUS ${response.statusCode}`)
+            }
             if (error) {
                 this.clog(`ERROR`)
                 this.clog(`${error}`)
-                return deferred.reject(new Error('Error'))
+                return deferred.reject(new Error(error))
+            }
+            if(response && response.statusCode !== 200){
+                this.clog(`ERROR`)
+                this.clog(`${body}`)
+                return deferred.reject(new Error(body))
             }
             this.clog(`RESPONSE BODY`)
             this.clog(`${body}`)
