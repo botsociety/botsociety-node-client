@@ -104,7 +104,8 @@ botsociety.getConversations().then(response => {
     //         "scenario": null,
     //         "selected_variant": "white",
     //         "selected_model": "iphone6",
-    //         "channel": "facebook"
+    //         "channel": "facebook",
+    //         "createdByMe": true
     //     },
     //     {
     //         "_id": "5a72e7f1f34eeb072c293d02",
@@ -116,7 +117,8 @@ botsociety.getConversations().then(response => {
     //         "scenario": null,
     //         "selected_variant": "evening",
     //         "selected_model": "home",
-    //         "channel": "googlehome"
+    //         "channel": "googlehome",
+    //         "createdByMe": true
     //     }
     // ]
 });
