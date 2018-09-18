@@ -8,7 +8,7 @@ You can find more details about our API at https://botsociety.docs.apiary.io
 ## What you can do
 - [`testing API auth`](https://botsociety.docs.apiary.io/#reference/0/auth/auth)
 - [`retrieve all conversations`](https://botsociety.docs.apiary.io/#reference/0/list-conversations)
-- [`retrieve single conversation`](https://botsociety.docs.apiary.io/#reference/0/get-conversation)
+- [`retrieve a single conversation`](https://botsociety.docs.apiary.io/#reference/0/get-conversation)
 - [`retrieve all messages for a specific conversation`](https://botsociety.docs.apiary.io/#reference/0/get-message)
 - [`retrieve all variables for a specific conversation`](https://botsociety.docs.apiary.io/#reference/0/get-variables/get-variables)
 
@@ -99,6 +99,9 @@ botsociety.getConversations().then(response => {
     //         "updatedAt": "2018-02-01T10:01:30.137Z",
     //         "createdAt": "2018-02-01T10:01:05.751Z",
     //         "name": "Test Mockup mockup",
+    //         "_converted_from": null,
+    //         "_cloned_from": null,
+    //         "scenario": null,
     //         "selected_variant": "white",
     //         "selected_model": "iphone6",
     //         "channel": "facebook"
@@ -108,6 +111,9 @@ botsociety.getConversations().then(response => {
     //         "updatedAt": "2018-02-01T10:12:37.937Z",
     //         "createdAt": "2018-02-01T10:12:01.037Z",
     //         "name": "Test Bot 2 mockup",
+    //         "_converted_from": null,
+    //         "_cloned_from": null,
+    //         "scenario": null,
     //         "selected_variant": "evening",
     //         "selected_model": "home",
     //         "channel": "googlehome"
@@ -126,22 +132,22 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
     //     "updatedAt":"2018-02-01T10:01:30.137Z",
     //     "createdAt":"2018-02-01T10:01:05.751Z",
     //     "name":"Test Mockup mockup",
-    //     "options": {
-    //         "menu": [
-    //             {
-    //                 "messages":[],
-    //                 "nodes":[
-    //                     {
-    //                         "messages":[],
-    //                         "nodes":[],
-    //                         "title":"Contact us",
-    //                         "id":"a966dbed-f60b-eb42-d754-393cd05fddd2"
-    //                     }
-    //                 ],
-    //                 "title":"Help",
-    //                 "id":"ab48ea31-6500-a43b-feb2-6442a6f7611f"
-    //             }
-    //         ]
+    //     "menu": {
+    //        "nodes": [
+    //            {
+    //                "messages": [],
+    //                "nodes": [
+    //                    {
+    //                        "messages": [],
+    //                        "nodes": [],
+    //                        "title": "Contact us",
+    //                        "id": "1a22984b-6b88-2253-9685-ab1521c4548e"
+    //                    }
+    //                ],
+    //                "title": "Help",
+    //                "id": "0942ff9f-840d-619d-df0f-7afd5fe99025"
+    //            }
+    //        ]
     //     },
     //     "set_welcome":false,
     //     "ws_page_category":"2301",
@@ -157,7 +163,8 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
     //             "updatedAt":"2018-02-01T10:11:36.571Z",
     //             "createdAt":"2018-02-01T10:01:30.048Z",
     //             "type":"text",
-    //             "side":true,
+    //             "custom_label": null,
+    //             "is_left_side": true,    
     //             "text":"I'm a bot",
     //             "_sender":"5a72e561f34eeb072c293cfc",
     //             "_conversation":"5a72e561f34eeb072c293cfd",
@@ -177,14 +184,17 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
     //             "show_time":1500,
     //             "alternativeChoices":[],
     //             "choices":[],
-    //             "text_with_variables": "I'm a ${whoami}"
+    //             "text_with_variables": "I'm a ${whoami}",
+    //             "progressiveId": 1,
+    //             "intent": "default-intent-0"
     //         },
     //         {
     //             "_id":"5a72e7d8f34eeb072c293d00",
     //             "updatedAt":"2018-02-01T10:11:36.560Z",
     //             "createdAt":"2018-02-01T10:11:36.560Z",
     //             "type":"text",
-    //             "side":false,
+    //             "custom_label": null,
+    //             "is_left_side": true,      
     //             "text":"I'm a user",
     //             "_sender":"5a72e570f34eeb072c293cfe",
     //             "_conversation":"5a72e561f34eeb072c293cfd",
@@ -204,7 +214,9 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
     //             "show_time":1500,
     //             "alternativeChoices":[],
     //             "choices":[],
-    //             "text_with_variables": "I'm a ${whoami}"
+    //             "text_with_variables": "I'm a ${whoami}",
+    //             "progressiveId": 2,
+    //             "intent": "custom-intent"
     //         }
     //     ]
     // }
@@ -222,7 +234,8 @@ botsociety.getMessageByConversation('CONVERSATION-ID','MESSAGE-ID').then(respons
     //     "updatedAt": "2017-09-11T15:37:06.775Z",
     //     "createdAt": "2017-09-11T15:37:06.775Z",
     //     "type": "text",
-    //     "side": false,
+    //     "custom_label": null,
+    //     "is_left_side": false,
     //     "text": "Hello Stefano, how are you today?",
     //     "text_with_variables": "Hello ${Name}, how are you today?",
     //     "_sender": "59b6abe8b674680d16cd7d75",
@@ -242,7 +255,9 @@ botsociety.getMessageByConversation('CONVERSATION-ID','MESSAGE-ID').then(respons
     //     "prev_message": "59b6ad99b674680d16cd7d78",
     //     "show_time": 1500,
     //     "alternativeChoices": [],
-    //     "choices": []
+    //     "choices": [],
+    //     "progressiveId": 1,
+    //      "intent": "default-intent-0"
     // }
 });
 ```
@@ -271,7 +286,8 @@ botsociety.getMessage('MESSAGE-ID').then(response => {
     //     "updatedAt": "2017-12-20T17:01:13.896Z",
     //     "createdAt": "2017-12-20T17:00:59.160Z",
     //     "type": "tbuttons",
-    //     "side": true,
+    //     "is_left_side": true,
+    //     "custom_label": null,
     //     "text": "",
     //     "_sender": "5a3a941a0462ee0d00c62693",
     //     "_conversation": "5a3a941a0462ee0d00c62694",
@@ -296,7 +312,9 @@ botsociety.getMessage('MESSAGE-ID').then(response => {
     //     "prev_message": "5a3a97570462ee0d00c626a8",
     //     "show_time": 1500,
     //     "alternativeChoices": [],
-    //     "choices": []
+    //     "choices": [],
+    //     "progressiveId": 1,
+    //     "intent": "default-intent-0"
     //   }
 });
 ```
