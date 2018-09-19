@@ -168,7 +168,6 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
     //             "custom_label": null,
     //             "is_left_side": true,    
     //             "text":"I'm a bot",
-    //             "_sender":"5a72e561f34eeb072c293cfc",
     //             "_conversation":"5a72e561f34eeb072c293cfd",
     //             "next_alternative":null,
     //             "prev_alternative":null,
@@ -198,7 +197,6 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
     //             "custom_label": null,
     //             "is_left_side": true,      
     //             "text":"I'm a user",
-    //             "_sender":"5a72e570f34eeb072c293cfe",
     //             "_conversation":"5a72e561f34eeb072c293cfd",
     //             "next_alternative":null,
     //             "prev_alternative":null,
@@ -240,9 +238,7 @@ botsociety.getMessageByConversation('CONVERSATION-ID','MESSAGE-ID').then(respons
     //     "is_left_side": false,
     //     "text": "Hello Stefano, how are you today?",
     //     "text_with_variables": "Hello ${Name}, how are you today?",
-    //     "_sender": "59b6abe8b674680d16cd7d75",
     //     "_conversation": "59b6abdcb674680d16cd7d74",
-    //     "localId": "1"
     //     "next_alternative": null,
     //     "prev_alternative": null,
     //     "attachments": [
@@ -291,7 +287,6 @@ botsociety.getMessage('MESSAGE-ID').then(response => {
     //     "is_left_side": true,
     //     "custom_label": null,
     //     "text": "",
-    //     "_sender": "5a3a941a0462ee0d00c62693",
     //     "_conversation": "5a3a941a0462ee0d00c62694",
     //     "next_alternative": null,
     //     "prev_alternative": null,
