@@ -183,8 +183,6 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
     //             "prev_linked_messages":[],
     //             "prev_message":null,
     //             "show_time":1500,
-    //             "alternativeChoices":[],
-    //             "choices":[],
     //             "text_with_variables": "I'm a ${whoami}",
     //             "progressiveId": 1,
     //             "intent": "default-intent-0"
@@ -212,8 +210,6 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
     //             "prev_linked_messages":[],
     //             "prev_message":"5a72e57af34eeb072c293cff",
     //             "show_time":1500,
-    //             "alternativeChoices":[],
-    //             "choices":[],
     //             "text_with_variables": "I'm a ${whoami}",
     //             "progressiveId": 2,
     //             "intent": "custom-intent"
@@ -252,8 +248,6 @@ botsociety.getMessageByConversation('CONVERSATION-ID','MESSAGE-ID').then(respons
     //     "prev_linked_messages": [],
     //     "prev_message": "59b6ad99b674680d16cd7d78",
     //     "show_time": 1500,
-    //     "alternativeChoices": [],
-    //     "choices": [],
     //     "progressiveId": 1,
     //      "intent": "default-intent-0"
     // }
@@ -308,7 +302,6 @@ botsociety.getMessage('MESSAGE-ID').then(response => {
     //     "prev_linked_messages": [],
     //     "prev_message": "5a3a97570462ee0d00c626a8",
     //     "show_time": 1500,
-    //     "alternativeChoices": [],
     //     "choices": [],
     //     "progressiveId": 1,
     //     "intent": "default-intent-0"
