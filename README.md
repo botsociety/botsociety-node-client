@@ -134,6 +134,16 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
     //     "updatedAt":"2018-02-01T10:01:30.137Z",
     //     "createdAt":"2018-02-01T10:01:05.751Z",
     //     "name":"Test Mockup mockup",
+    //     "_first_message":"5a72e57af34eeb072c293cff",
+    //     "_converted_from": null,
+    //     "_cloned_from": null,
+    //     "scenario": null,
+    //     "options": {
+    //         "showWelcomeScreen": true,
+    //         "showTypingIndicators": true,
+    //         "showKeyboard": true,
+    //         "backgroundColor": "#FFFFFF"
+    //     },
     //     "menu": {
     //        "nodes": [
     //            {
@@ -183,6 +193,7 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
     //             "prev_linked_messages":[],
     //             "prev_message":null,
     //             "show_time":1500,
+    //             "is_first_message":true,
     //             "text_with_variables": "I'm a ${whoami}",
     //             "progressiveId": 1,
     //             "intent": "default-intent-0"
@@ -210,6 +221,7 @@ botsociety.getConversations('CONVERSATION-ID').then(response => {
     //             "prev_linked_messages":[],
     //             "prev_message":"5a72e57af34eeb072c293cff",
     //             "show_time":1500,
+    //             "is_first_message":false,
     //             "text_with_variables": "I'm a ${whoami}",
     //             "progressiveId": 2,
     //             "intent": "custom-intent"
@@ -233,7 +245,6 @@ botsociety.getMessageByConversation('CONVERSATION-ID','MESSAGE-ID').then(respons
     //     "custom_label": null,
     //     "is_left_side": false,
     //     "text": "Hello Stefano, how are you today?",
-    //     "text_with_variables": "Hello ${Name}, how are you today?",
     //     "_conversation": "59b6abdcb674680d16cd7d74",
     //     "next_alternative": null,
     //     "prev_alternative": null,
@@ -248,6 +259,8 @@ botsociety.getMessageByConversation('CONVERSATION-ID','MESSAGE-ID').then(respons
     //     "prev_linked_messages": [],
     //     "prev_message": "59b6ad99b674680d16cd7d78",
     //     "show_time": 1500,
+    //     "is_first_message":true,
+    //     "text_with_variables": "Hello ${Name}, how are you today?",
     //     "progressiveId": 1,
     //      "intent": "default-intent-0"
     // }
