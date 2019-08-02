@@ -1,24 +1,40 @@
 # Botsociety API
+
 [![NPM](https://nodei.co/npm/botsociety.png)](https://nodei.co/npm/botsociety/)
 
-Npm module to retrieve automagically the content of your chatbot designs from botsociety.io
+Npm module to retrieve automagically the content of your designs from botsociety.io
 
-You can find more details about our API at https://botsociety.docs.apiary.io
+You can find more details about our API at https://api.botsociety.io/
 
 ## What you can do
-- [`testing API auth`](https://botsociety.docs.apiary.io/#reference/0/auth/auth)
-- [`retrieve all conversations`](https://botsociety.docs.apiary.io/#reference/0/list-conversations)
-- [`retrieve a single conversation`](https://botsociety.docs.apiary.io/#reference/0/get-conversation)
-- [`retrieve all messages for a specific conversation`](https://botsociety.docs.apiary.io/#reference/0/get-message)
-- [`retrieve all variables for a specific conversation`](https://botsociety.docs.apiary.io/#reference/0/get-variables/get-variables)
+
+- [`testing API auth`](https://api.botsociety.io/?version=latest#d591095d-ada5-4142-a8bc-ce056e32762d)
+- [`create a conversation`](https://api.botsociety.io/?version=latest#a3490e0c-92f3-4539-899a-90d45ce74387)
+- [`retrieve all conversations`](https://api.botsociety.io/?version=latest#efc6df77-947d-496f-ac71-5ebdd0e86bf8)
+- [`retrieve single conversation`](https://api.botsociety.io/?version=latest#ed6b6fcd-e207-428b-a2f8-b9ac73a66c83)
+- [`delete a conversation`](https://api.botsociety.io/?version=latest#6346a231-db4c-4fb0-93e3-516afc081689)
+- [`create a new message attached to a conversation`](https://api.botsociety.io/?version=latest#3f534a44-b5fe-4f6f-af6e-04eca635e97c)
+- [`link a message to another message in the same conversation`](https://api.botsociety.io/?version=latest#717c5724-8534-4479-b28c-6dc2ef3091f9)
+- [`remove an existing link connection between two messages`](https://api.botsociety.io/?version=latest#c93e831d-0538-4f4a-89cc-69c9838b0832)
+- [`retrieve a message from a conversation`](https://api.botsociety.io/?version=latest#614df83b-9b9b-41a3-8931-0b1ee1f1ef8e)
+- [`delete a message from a conversation`](https://api.botsociety.io/?version=latest#4985d901-9b91-4ee5-bdee-09d47f7d3375)
+- [`add variables to a conversation`](https://api.botsociety.io/?version=latest#529014e3-116e-43c7-b23a-3c166b7b935b)
+- [`retrieve variables from a conversation`](https://api.botsociety.io/?version=latest#9e1e9ba1-e8bf-429e-a875-44027d81bde5)
 
 ## Methods
+
 - auth()
+- createConversation()
 - getConversations()
 - getConversations(conversationId)
+- deleteConversation(conversationId)
+- addMessage(conversationId, messageId)
+- linkMessage(conversationId, body)
+- unlinkMessage(conversationId, body)
 - getMessageByConversation(conversationId, messageId)
-- getConversationVariables(conversationId)
-- getMessage(messageId) - DEPRECATED
+- deleteMessage(conversationId, messageId)
+- addVariables(conversationId, body)
+- getVariables(conversationId)
 
 ## Configuration
 
@@ -58,6 +74,7 @@ You can find more details about our API at https://botsociety.docs.apiary.io
 </table>
 
 ## Get your user ID and API key
+
 Sign up at <a target="_blank" href="https://app.botsociety.io/signup">botsociety.io</a> (it's free!)
 
 Go to the <a target="_blank" href="https://app.botsociety.io/#/account">account page</a>
@@ -67,259 +84,21 @@ Generate the API key
 ## Usage example
 
 ```js
-let Botsociety = require('botsociety')
+const Botsociety = require("botsociety");
 
-let config = {
-  userId : 'YOUR-USER-ID',
-  apiKey : 'YOUR-API-KEY',
-  debug : false
+const config = {
+  userId: "YOUR-USER-ID",
+  apiKey: "YOUR-API-KEY",
+  debug: false
+};
+
+const botsociety = new Botsociety(config);
+const runApi = async()=>{
+  const authResponse = await botsociety.auth()
+  const conversation = await botsociety.createConversation()
+  ...
 }
-
-let botsociety = new Botsociety(config)
-```
-### auth()
-```js
-botsociety.auth().then(response => {
-  console.log(response)
-  //Example response object:
-  //   {
-  //     "auth": true,
-  //     "info": "You are successfully calling the API. This is just a test API to check your authentication params."
-  //   }
-});
-```
-### getConversations()
-```js
-botsociety.getConversations().then(response => {
- console.log(response)
-    // Example response from a user with 2 different mockups
-    // [
-    //     {
-    //         "_id": "5a72e561f34eeb072c293cfd",
-    //         "updatedAt": "2018-02-01T10:01:30.137Z",
-    //         "createdAt": "2018-02-01T10:01:05.751Z",
-    //         "name": "Test Mockup mockup",
-    //         "_converted_from": null,
-    //         "_cloned_from": null,
-    //         "scenario": null,
-    //         "selected_variant": "white",
-    //         "selected_model": "iphone6",
-    //         "channel": "facebook",
-    //         "createdByMe": true
-    //     },
-    //     {
-    //         "_id": "5a72e7f1f34eeb072c293d02",
-    //         "updatedAt": "2018-02-01T10:12:37.937Z",
-    //         "createdAt": "2018-02-01T10:12:01.037Z",
-    //         "name": "Test Bot 2 mockup",
-    //         "_converted_from": null,
-    //         "_cloned_from": null,
-    //         "scenario": null,
-    //         "selected_variant": "evening",
-    //         "selected_model": "home",
-    //         "channel": "googlehome",
-    //         "createdByMe": true
-    //     }
-    // ]
-});
-```
-### getConversations('CONVERSATION-ID')
-You can get the conversation ID by visiting the building mode page, the conversation ID is in the right side.
-```js
-botsociety.getConversations('CONVERSATION-ID').then(response => {
-  console.log(response)
-    //  Example response for a Messenger conversation.
-    // {
-    //     "_id":"5a72e561f34eeb072c293cfd",
-    //     "updatedAt":"2018-02-01T10:01:30.137Z",
-    //     "createdAt":"2018-02-01T10:01:05.751Z",
-    //     "name":"Test Mockup mockup",
-    //     "_first_message":"5a72e57af34eeb072c293cff",
-    //     "_converted_from": null,
-    //     "_cloned_from": null,
-    //     "scenario": null,
-    //     "options": {
-    //         "showWelcomeScreen": true,
-    //         "showTypingIndicators": true,
-    //         "showKeyboard": true,
-    //         "backgroundColor": "#FFFFFF"
-    //     },
-    //     "menu": {
-    //        "nodes": [
-    //            {
-    //                "messages": [],
-    //                "nodes": [
-    //                    {
-    //                        "messages": [],
-    //                        "nodes": [],
-    //                        "title": "Contact us",
-    //                        "id": "1a22984b-6b88-2253-9685-ab1521c4548e"
-    //                    }
-    //                ],
-    //                "title": "Help",
-    //                "id": "0942ff9f-840d-619d-df0f-7afd5fe99025"
-    //            }
-    //        ]
-    //     },
-    //     "set_welcome":false,
-    //     "ws_page_category":"2301",
-    //     "ws_fans":"0",
-    //     "ws_text":"Hi, click the button below to start!",
-    //     "rtl":false,
-    //     "selected_variant":"white",
-    //     "selected_model":"iphone6",
-    //     "channel":"facebook",
-    //     "messages":[
-    //         {
-    //             "_id":"5a72e57af34eeb072c293cff",
-    //             "updatedAt":"2018-02-01T10:11:36.571Z",
-    //             "createdAt":"2018-02-01T10:01:30.048Z",
-    //             "type":"text",
-    //             "custom_label": null,
-    //             "is_left_side": true,    
-    //             "text":"I'm a bot",
-    //             "_conversation":"5a72e561f34eeb072c293cfd",
-    //             "next_alternative":null,
-    //             "prev_alternative":null,
-    //             "attachments":[
-    //                 {
-    //                     "choices":[],
-    //                     "labels":[],
-    //                     "size":"horizontal"
-    //                 }
-    //             ],
-    //             "next_message":"5a72e7d8f34eeb072c293d00",
-    //             "is_next_message_linked":false,
-    //             "prev_linked_messages":[],
-    //             "prev_message":null,
-    //             "show_time":1500,
-    //             "is_first_message":true,
-    //             "text_with_variables": "I'm a ${whoami}",
-    //             "progressiveId": 1,
-    //             "intent": "default-intent-0"
-    //         },
-    //         {
-    //             "_id":"5a72e7d8f34eeb072c293d00",
-    //             "updatedAt":"2018-02-01T10:11:36.560Z",
-    //             "createdAt":"2018-02-01T10:11:36.560Z",
-    //             "type":"text",
-    //             "custom_label": null,
-    //             "is_left_side": true,      
-    //             "text":"I'm a user",
-    //             "_conversation":"5a72e561f34eeb072c293cfd",
-    //             "next_alternative":null,
-    //             "prev_alternative":null,
-    //             "attachments":[
-    //                 {
-    //                     "choices":[],
-    //                     "labels":[],
-    //                     "size":"horizontal"
-    //                 }
-    //             ],
-    //             "next_message":null,
-    //             "is_next_message_linked":false,
-    //             "prev_linked_messages":[],
-    //             "prev_message":"5a72e57af34eeb072c293cff",
-    //             "show_time":1500,
-    //             "is_first_message":false,
-    //             "text_with_variables": "I'm a ${whoami}",
-    //             "progressiveId": 2,
-    //             "intent": "custom-intent"
-    //         }
-    //     ]
-    // }
-});
-```
-### getMessageByConversation('CONVERSATION-ID','MESSAGE-ID')
-You can use the unique id or the progressive id.
-You can get the progressive ID by visiting the building mode page (Build button), progressive ID is referenced as "ID".
-```js
-botsociety.getMessageByConversation('CONVERSATION-ID','MESSAGE-ID').then(response => {
-  console.log(response)
-    //  Example response for message id
-    // {
-    //     "_id": "59b6ada2b674680d16cd7d79",
-    //     "updatedAt": "2017-09-11T15:37:06.775Z",
-    //     "createdAt": "2017-09-11T15:37:06.775Z",
-    //     "type": "text",
-    //     "custom_label": null,
-    //     "is_left_side": false,
-    //     "text": "Hello Stefano, how are you today?",
-    //     "_conversation": "59b6abdcb674680d16cd7d74",
-    //     "next_alternative": null,
-    //     "prev_alternative": null,
-    //     "attachments": [
-    //         {
-    //             "choices": [],
-    //             "labels": []
-    //         }
-    //     ],
-    //     "next_message": null,
-    //     "is_next_message_linked": false,
-    //     "prev_linked_messages": [],
-    //     "prev_message": "59b6ad99b674680d16cd7d78",
-    //     "show_time": 1500,
-    //     "is_first_message":true,
-    //     "text_with_variables": "Hello ${Name}, how are you today?",
-    //     "progressiveId": 1,
-    //      "intent": "default-intent-0"
-    // }
-});
-```
-### getConversationVariables('CONVERSATION-ID')
-```js
-botsociety.getConversationVariables('CONVERSATION-ID').then(response => {
-  console.log(response)
-    //  Example response for variables
-    //  {
-    //      "Name": {
-    //          "values": [
-    //              "Stefano",
-    //              "Max"
-    //          ]
-    //      }
-    //  }
-});
-```
-### getMessage('MESSAGE-ID')
-```js
-botsociety.getMessage('MESSAGE-ID').then(response => {
-  console.log(response)
-    //  Example response for message id
-    //   {
-    //     "_id": "5a3a974b0462ee0d00c626a5",
-    //     "updatedAt": "2017-12-20T17:01:13.896Z",
-    //     "createdAt": "2017-12-20T17:00:59.160Z",
-    //     "type": "tbuttons",
-    //     "is_left_side": true,
-    //     "custom_label": null,
-    //     "text": "",
-    //     "_conversation": "5a3a941a0462ee0d00c62694",
-    //     "next_alternative": null,
-    //     "prev_alternative": null,
-    //     "attachments": [{
-    //         "image": "https://s3.amazonaws.com/botsociety.prod.us/18e96cca4953df72693feb59_screen%20shot%2020171215%20at%20114303%20pmpng.png",
-    //         "labels": ["Civ 6", "$300 now"],
-    //         "choices": [{
-    //             "next_message": null,
-    //             "is_next_message_linked": false,
-    //             "text": "Buy"
-    //         }, {
-    //             "next_message": null,
-    //             "is_next_message_linked": false,
-    //             "text": "Rent"
-    //         }]
-    //     }],
-    //     "next_message": null,
-    //     "is_next_message_linked": false,
-    //     "prev_linked_messages": [],
-    //     "prev_message": "5a3a97570462ee0d00c626a8",
-    //     "show_time": 1500,
-    //     "choices": [],
-    //     "progressiveId": 1,
-    //     "intent": "default-intent-0"
-    //   }
-});
+runApi()
 ```
 
 ## License (ISC)
