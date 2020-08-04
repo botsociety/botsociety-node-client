@@ -18,12 +18,14 @@
   ],
   "author": "Botsociety Inc.",
   "license": "ISC",
-  "devDependencies": {
-    "q": "^1.5.1",
-    "request": "^2.83.0"
-  },
   "dependencies": {
     "q": "^1.5.1",
-    "request": "^2.83.0"
+    "ramda": "^0.27.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "mocha": "^8.1.0"
   }
 }
