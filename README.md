@@ -1,6 +1,8 @@
-# Botsociety API
+# Botsociety API Node Client
 
 [![NPM](https://nodei.co/npm/botsociety.png)](https://nodei.co/npm/botsociety/)
+
+[![botsociety](https://circleci.com/gh/botsociety/botsociety-node-client.svg?style=svg)](https://circleci.com/gh/botsociety/botsociety-node-client)
 
 Npm module to retrieve automagically the content of your designs from botsociety.io
 
