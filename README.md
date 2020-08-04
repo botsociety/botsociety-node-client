@@ -22,8 +22,70 @@ var config = {
 }
 var botsociety = new Botsociety(config)
 botsociety.getConversation("Your design id here)
-.then(function(data) { // Your conversation data will be here
-    data.messages.forEach // Cycle through your messages
+.then(function(data) {
+    // Your conversation data will be here
+})
+```
+
+A more detailed example of your conversation data.
+
+Example of a structure of a message object:
+
+```javascript
+var botsociety = new Botsociety(config)
+botsociety.getConversation("Your design id here)
+.then(function(data) {
+    data.messages.forEach(function(message) { // Loop through your messages
+         console.log(message.id) // Your message id
+         console.log(message.pathId) // The path this message belongs to
+         Object.Keys(message.attachments).forEach(function(key) {
+             console.log(message.attachments[key][0]) // The message's attachment
+             message.attachments[key][0].forEach(function(element) {
+                 console.log(element) //the single Message element
+                 Object.keys(element.values).forEach(function(utteranceId) { // Looping through your message utterances
+                    console.log(Object.values(element.values[utteranceId])) // The content of your utterance
+                 })
+             })
+         })
+    })
+```
+
+Example of an intentsInfo object, that contains the data to train your NLP engine and for your dialog manager:
+
+```javascript
+    Object.keys(data.intentsInfo).forEach(function(intentId) { // Loop through the intents
+        var intent = data.intentsInfo(intentId)
+
+        intent.parameters.forEach(function(parameter) { // Loop through the messages assigned to this intent
+            parameter.ai.forEach(function(AiMessage) {
+                console.log(aiMessage) // The messages sent by a bot that have this intent assigned
+            })
+            parameter.user.forEach(function(UserMessage) {
+                console.log(UserMessage) //  The messages sent by a user that have this intent assigned
+            })
+        })
+
+        intent.nlp.forEach(function(nlp) { // The messages sent by users in order to trigger this intent
+            console.log(nlp.messageInfo) // An object simpler than the message object, where you can retrieve your message text content
+            /* Example of message Info
+                ssmlTexts: [],
+                ssmlPlainTexts: [],
+                textComponents: [ "I don't get it", 'What can you do?' ],
+                imageComponents: [],
+                chips: [],
+                cards: [],
+                videoComponents: [],
+                nextMessageIds: [ '5efa534f17defcfc98c45a5d' ]
+            */
+
+           console.log(nlp.message) // The complete message object
+        })
+
+        intent.responses.forEach(function(response) { // The messages sent by bot in response to an intent
+            console.log(response.messageInfo) // An object simpler than the message object, where you can retrieve your message text content
+            console.log(response.message) // The complete message object
+        })
+    })
 })
 ```
 
@@ -31,7 +93,7 @@ For an example of the conversation object, refer to the <a target="_blank" href=
 
 ## API Documentation
 
-[API Reference](https://botsociety.io/documentation/api/)
+You can find [here the full API Reference](https://botsociety.io/documentation/api/)
 
 ## Get your user ID and API key
 
@@ -39,9 +101,14 @@ Sign up at <a target="_blank" href="https://app.botsociety.io/signup">botsociety
 
 Go to the <a target="_blank" href="https://app.botsociety.io/#/account">account page</a> to generate the API key.
 
-## Export module boilerplate
+## Building a Custom Integration
 
-With the Botsociety API, you can build a custom Botsociety Export - to export your Botsociety designs to a bot building solution. You can start from this boiler plate. Also check out this CSV Export example.
+With the Botsociety API, you can build a custom Botsociety Export. It will to export your Botsociety designs to a bot building solution. You can build a custom integration for your organisation, or you can submit one to be published on Botsociety. The Botsociety team will review your custom integration and then add it to Botsociety. Learn more about publishing integrations here.
+
+If you are interested in building a Custom Integration, a good place to start is this boiler plate. Also check out this CSV Export example.
+Current integrations include:
+- <a target="_blank" href="https://botsociety.io/documentation/build-mode/#exporting-to-dialogflow">Dialogflow</a>
+- <a target="_blank" href="https://botsociety.io/documentation/build-mode/#exporting-to-rasa">Rasa (in developer preview)</a>
 
 ## Legacy API
 
@@ -59,7 +126,7 @@ Then call the usual methods:
 botsociety.auth()
 botsociety.getConversations()
 ```
-
+Available methods:
 - auth()
 - createConversation()
 - getConversations()
@@ -73,20 +140,7 @@ botsociety.getConversations()
 - addVariables(conversationId, body)
 - getVariables(conversationId)
 
-You can use all of the methods of the Legacy API:
-
-- [`testing API auth`](https://api.botsociety.io/?version=latest#d591095d-ada5-4142-a8bc-ce056e32762d)
-- [`create a conversation`](https://api.botsociety.io/?version=latest#a3490e0c-92f3-4539-899a-90d45ce74387)
-- [`retrieve all conversations`](https://api.botsociety.io/?version=latest#efc6df77-947d-496f-ac71-5ebdd0e86bf8)
-- [`retrieve single conversation`](https://api.botsociety.io/?version=latest#ed6b6fcd-e207-428b-a2f8-b9ac73a66c83)
-- [`delete a conversation`](https://api.botsociety.io/?version=latest#6346a231-db4c-4fb0-93e3-516afc081689)
-- [`create a new message attached to a conversation`](https://api.botsociety.io/?version=latest#3f534a44-b5fe-4f6f-af6e-04eca635e97c)
-- [`link a message to another message in the same conversation`](https://api.botsociety.io/?version=latest#717c5724-8534-4479-b28c-6dc2ef3091f9)
-- [`remove an existing link connection between two messages`](https://api.botsociety.io/?version=latest#c93e831d-0538-4f4a-89cc-69c9838b0832)
-- [`retrieve a message from a conversation`](https://api.botsociety.io/?version=latest#614df83b-9b9b-41a3-8931-0b1ee1f1ef8e)
-- [`delete a message from a conversation`](https://api.botsociety.io/?version=latest#4985d901-9b91-4ee5-bdee-09d47f7d3375)
-- [`add variables to a conversation`](https://api.botsociety.io/?version=latest#529014e3-116e-43c7-b23a-3c166b7b935b)
-- [`retrieve variables from a conversation`](https://api.botsociety.io/?version=latest#9e1e9ba1-e8bf-429e-a875-44027d81bde5)
+For more information, check out the <a target="_blank" href="https://api.botsociety.io/">Legacy API</a>
 
 ## License (ISC)
 
