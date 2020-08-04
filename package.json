@@ -3,12 +3,15 @@
   "email": "info@botsociety.io",
   "homepage": "https://botsociety.io",
   "url": "https://botsociety.io",
-  "version": "2.0.0",
-  "description": "Botsociety npm api module",
+  "version": "3.0.0",
+  "description": "The official Botsociety npm API Module",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/botsociety/botsociety-node-client.git"
+  },
+  "scripts": {
+    "test": "mocha"
   },
   "keywords": [
     "botsociety",
