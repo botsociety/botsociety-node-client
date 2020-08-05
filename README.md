@@ -8,7 +8,7 @@ Npm module to retrieve automagically the content of your designs from botsociety
 
 ## Quick start
 
-```bash
+```terminal
 npm install
 ```
 
@@ -141,7 +141,7 @@ Available methods:
 - addVariables(conversationId, body)
 - getVariables(conversationId)
 
-For more information, check out the <a target="_blank" href="https://api.botsociety.io/">Legacy API</a>
+For more information, check out the <a target="_blank" href="https://api.botsociety.io/">Legacy API Reference</a>
 
 ## License (ISC)
 
