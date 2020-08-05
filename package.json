@@ -3,7 +3,7 @@
   "email": "info@botsociety.io",
   "homepage": "https://botsociety.io",
   "url": "https://botsociety.io",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "The official Botsociety npm API Module",
   "main": "index.js",
   "repository": {
