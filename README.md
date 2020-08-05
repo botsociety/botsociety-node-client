@@ -103,9 +103,10 @@ Go to the <a target="_blank" href="https://app.botsociety.io/#/account">account 
 
 ## Building a Custom Integration
 
-With the Botsociety API, you can build a custom Botsociety Export. It will to export your Botsociety designs to a bot building solution. You can build a custom integration for your organisation, or you can submit one to be published on Botsociety. The Botsociety team will review your custom integration and then add it to Botsociety. Learn more about publishing integrations here.
+With the Botsociety API, you can build a custom Botsociety Export. It will to export your Botsociety designs to a bot building solution. You can build a custom integration for your organisation, or you can submit one to be published on Botsociety. The Botsociety team will review your custom integration and then add it to Botsociety. <a href="https://botsociety.io/documentation/custom-integrations" target="_blank">Learn more about publishing integrations here</a>.
 
-If you are interested in building a Custom Integration, a good place to start is this boiler plate. Also check out this CSV Export example.
+If you are interested in building a Custom Integration, a good place to start is the <a target="_blank" href="https://github.com/botsociety/botsociety-integration-js-boilerplate">custom integration boiler plate</a>.
+
 Current integrations include:
 - <a target="_blank" href="https://botsociety.io/documentation/build-mode/#exporting-to-dialogflow">Dialogflow</a>
 - <a target="_blank" href="https://botsociety.io/documentation/build-mode/#exporting-to-rasa">Rasa (in developer preview)</a>
