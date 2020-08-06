@@ -40,7 +40,7 @@ botsociety.getConversation("Your design id here)
          console.log(message.pathId) // The path this message belongs to
          Object.Keys(message.attachments).forEach(function(key) {
              console.log(message.attachments[key][0]) // The message's attachment
-             message.attachments[key][0].forEach(function(element) {
+             message.attachments[key][0].items.forEach(function(element) {
                  console.log(element) //the single Message element
                  Object.keys(element.values).forEach(function(utteranceId) { // Looping through your message utterances
                     console.log(Object.values(element.values[utteranceId])) // The content of your utterance

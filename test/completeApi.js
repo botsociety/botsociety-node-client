@@ -7,6 +7,7 @@ describe("API", function() {
     debug: false
   }
   it("get conversation", function(done) {
+    this.timout(3000)
     var botsociety = new Botsociety(config)
     botsociety.getConversation(process.env.B2_DESIGN_ID)
     .then(function(data) {

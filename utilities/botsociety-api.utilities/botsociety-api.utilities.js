@@ -26,7 +26,11 @@ function Utilities(config) {
           responseData += chunk
         });
         res.on('end', () => {
-          done(JSON.parse(responseData))
+          if (res.statusCode != 200) {
+            return error(JSON.parse(responseData))
+          } else {
+            return done(JSON.parse(responseData))
+          }
         });
       });
       req.on('error', (e) => {
