@@ -36,18 +36,26 @@ var botsociety = new Botsociety(config)
 botsociety.getConversation("Your design id here)
 .then(function(data) {
     data.messages.forEach(function(message) { // Loop through your messages
-         console.log(message.id) // Your message id
-         console.log(message.pathId) // The path this message belongs to
-         Object.Keys(message.attachments).forEach(function(key) {
-             console.log(message.attachments[key][0]) // The message's attachment
-             message.attachments[key][0].items.forEach(function(element) {
-                 console.log(element) //the single Message element
-                 Object.keys(element.values).forEach(function(utteranceId) { // Looping through your message utterances
-                    console.log(Object.values(element.values[utteranceId])) // The content of your utterance
-                 })
-             })
-         })
-    })
+    console.log(message.id) // Your message id
+    console.log(message.pathId) // The path this message belongs to
+    for (x = 0; x < conversation.messages.length; x++) { //loop the messages
+        var message = conversation.messages[x]
+        for (y = 0; y < message.attachments.length; y++ ) { //loop the attachments
+            var attachment = message.attachments[y]
+            for (z = 0; z < attachment.utterances.length; z++ ) { //loop the utterances
+                var utterance = attachment.utterances[z]
+                for (i = 0; i < utterance.components.length; i++ ) { //loop the components
+                    utterance.components[i].text // The plain text content of your message
+                    /*
+                        You can also have choices and images, and this object may be more complex due to that.
+                        Check out the full reference here:
+                        https://botsociety.io/documentation/api/#the-message-object
+                    */
+                }
+            }
+        }
+    }
+})
 ```
 
 Example of an intentsInfo object, that contains the data to train your NLP engine and for your dialog manager:
