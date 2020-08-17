@@ -12,7 +12,7 @@ Npm module to retrieve automagically the content of your designs from botsociety
 npm install
 ```
 
-Retrieve your User Id and API key from the <a target="_blank" href="https://app.botsociety.io/#/account">API panel in Botsociety</a>.
+Retrieve your User Id and API key from the <a target="_blank" href="https://app.botsociety.io/#/account/api">API panel in Botsociety</a>.
 Once you have the credentials:
 
 ```javascript
@@ -21,7 +21,7 @@ var config = {
     apiKey: process.env.API_KEY
 }
 var botsociety = new Botsociety(config)
-botsociety.getConversation("Your design id here)
+botsociety.getConversation("Your design id here")
 .then(function(data) {
     // Your conversation data will be here
 })
